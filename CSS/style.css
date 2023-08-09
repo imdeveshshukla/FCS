@@ -1,0 +1,57 @@
+*{
+    font-family: 'Inter', sans-serif;
+}
+#LogoImg{
+    border-radius: 100%;
+}
+
+#introHeaderBox{
+    background-image:  url('../img/headerBg.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+#introHeader{
+    width: 48%;
+    font-size: 5rem;
+}
+#btnHeader{
+    display: inline-flex;
+    justify-content: center;
+    width: 40%;
+    height: 50px;
+}
+#ButtonNav{
+    width: 20%;
+    height: 100%;
+    margin-right: 15px;
+}
+#ButtonNav:hover{
+    color: aliceblue;
+    background-color: #226BD2;
+}
+
+@media(max-width: 590px){
+    #introHeaderBox{
+        background-image:  url('../img/headerBgSmall.jpg');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+    }
+    #introHeader{
+        width: 100%;
+        font-size: 3rem;
+    }
+    #ButtonNav{
+        font-size: small;
+        width: 90%;
+        height: 100%;
+        margin-right: 15px;
+    }
+}
