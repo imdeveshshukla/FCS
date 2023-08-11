@@ -1,5 +1,17 @@
 *{
     font-family: 'Inter', sans-serif;
+    /* width: 100%; */
+}
+html{
+    width: 100vw;
+}
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: smaller;
+    display: inline-flex;
+    flex-direction: column;
 }
 #LogoImg{
     border-radius: 100%;
@@ -16,7 +28,7 @@
 }
 #introHeader{
     width: 48%;
-    font-size: 5rem;
+    font-size: 3rem;
 }
 #btnHeader{
     display: inline-flex;
@@ -26,6 +38,7 @@
 }
 #ButtonNav{
     width: 20%;
+    font-size: small;
     height: 100%;
     margin-right: 15px;
 }
@@ -42,11 +55,7 @@
         justify-content: center;
         flex-direction: column;
         width: 100%;
-        height: 100vh;
-    }
-    #introHeader{
-        width: 100%;
-        font-size: 3rem;
+        height: 120vh;
     }
     #ButtonNav{
         font-size: small;
@@ -54,4 +63,20 @@
         height: 100%;
         margin-right: 15px;
     }
+    #btnHeader{
+        width: 60%;
+    }
+}
+
+#midBox{
+    width: 80%;
+    align-self: center;
+}
+
+#lastBoxCont{
+    height: 500px;
+}
+#locationMap{
+    width: 100%;
+    height: 100%;
 }
