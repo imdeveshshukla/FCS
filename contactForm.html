@@ -17,14 +17,36 @@
     </div>
     <form action="./index.html" class="d-flex flex-column w-25 align-self-center">
         <label for="naam" id="labelName">Name:</label>
-        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Name" id="naam">
         <label for="Mobile">Contact No:</label>
-        <input type="number" placeholder="8090280964">
+        <input type="number" placeholder="8090280964" id="mobNum">
         <label for="msg">Any Message:</label>
-        <textarea name="msg" id="" cols="30" rows="10"></textarea>
-        <button type="submit" class="w-25 align-self-center mt-3 btn btn-light btn-dark" id="ButtonNav">Send</button>
+        <textarea name="msg" id="" cols="30" rows="10" id="bodyItem"></textarea>
+        <button type="button" onclick="sendMsg()" class="w-25 align-self-center mt-3 btn btn-light btn-dark" id="ButtonNav">Send</button>
     </form> 
 
-
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        function sendMsg() {
+            var naam = document.getElementById('naam').value;
+            var mobNO = document.getElementById('mobNum').value;
+            var body = document.getElementById('bodyItem').value;
+    
+            var message = "Name : " + naam + "Message : " + body + "Mobile Number : " + mobNO;
+            console.log("in function", message);
+            // Email.send({
+            // Host : "smtp.elasticemail.com",
+            // Username : "fcs.zone@gmail.com",
+            // Password : "D7BBD3F5D6E99451415DA114E0F814C5905B",
+            // To : 'shivendubharat@gmail.com',
+            // From : 'fcs.zone@gmail.com',
+            // Subject : "From FCS website for free Consulation ",
+            // Body : "And this is the body"
+            // }).then(
+            // message => alert(message)
+            // );  
+        }
+    </script>
 </body>
 </html>
