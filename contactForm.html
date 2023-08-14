@@ -15,37 +15,50 @@
         <img src="./img/calendar-date.svg" alt="CalendarDate" style="width: 40px;">
         <h2 class="mt-3 mx-1">Book Free Consultation Right Now</h2>
     </div>
-    <form action="./index.html" class="d-flex flex-column w-25 align-self-center">
-        <label for="naam" id="labelName">Name:</label>
+    <form action="" class="d-flex flex-column w-75 align-self-center">
+        <label for="" id="labelName">Name:</label>
         <input type="text" placeholder="Name" id="naam">
         <label for="Mobile">Contact No:</label>
         <input type="number" placeholder="8090280964" id="mobNum">
         <label for="msg">Any Message:</label>
-        <textarea name="msg" id="" cols="30" rows="10" id="bodyItem"></textarea>
+        <textarea id="textArea" cols="30" rows="10"></textarea>
         <button type="button" onclick="sendMsg()" class="w-25 align-self-center mt-3 btn btn-light btn-dark" id="ButtonNav">Send</button>
-    </form> 
-
+    </form>
     <script src="https://smtpjs.com/v3/smtp.js">
     </script>
     <script>
         function sendMsg() {
             var naam = document.getElementById('naam').value;
             var mobNO = document.getElementById('mobNum').value;
-            var body = document.getElementById('bodyItem').value;
-    
-            var message = "Name : " + naam + "Message : " + body + "Mobile Number : " + mobNO;
-            console.log("in function", message);
-            // Email.send({
-            // Host : "smtp.elasticemail.com",
-            // Username : "fcs.zone@gmail.com",
-            // Password : "D7BBD3F5D6E99451415DA114E0F814C5905B",
-            // To : 'shivendubharat@gmail.com',
-            // From : 'fcs.zone@gmail.com',
-            // Subject : "From FCS website for free Consulation ",
-            // Body : "And this is the body"
-            // }).then(
-            // message => alert(message)
-            // );  
+            var body = document.getElementById('textArea').value;
+            if(naam == '')
+            {
+                alert("Name is Empty");
+            }
+            else if(mobNO == '')
+            {
+                alert("Mobile Number is Empty");
+            }
+            else if(body == '')
+            {
+                body = "NA";
+            }
+            else
+            {
+                var mess = "Name : " + naam + " \nMessage : " + body + " \nMobile Number : " + mobNO;
+                console.log("in function", mess);
+                Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "fcs.zone@gmail.com",
+                Password : "D7BBD3F5D6E99451415DA114E0F814C5905B",
+                To : 'shivendubharat@gmail.com',
+                From : 'fcs.zone@gmail.com',
+                Subject : "From FCS website For Consulation ",
+                Body : mess
+                }).then(
+                message => alert(message)
+                );  
+            }
         }
     </script>
 </body>
