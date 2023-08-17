@@ -22,12 +22,17 @@
         <input type="number" placeholder="8090280964" id="mobNum">
         <label for="msg">Any Message:</label>
         <textarea id="textArea" cols="30" rows="10"></textarea>
-        <button type="button" onclick="sendMsg()" class="w-25 align-self-center mt-3 btn btn-light btn-dark" id="ButtonNav">Send</button>
+        <button type="button" onclick="sendMsg()" class="w-25 align-self-center mt-3 btn btn-light btn-dark" id="ButtonNav2">
+            <p id="loaderTxt">Send</p>
+            <img src="./img/loader.gif" alt="loader" width="20px" id="loaderPng">
+        </button>
     </form>
     <script src="https://smtpjs.com/v3/smtp.js">
     </script>
     <script>
         function sendMsg() {
+            var loader = document.getElementById('loaderPng');
+            var loadertxt = document.getElementById('loaderTxt');
             var naam = document.getElementById('naam').value;
             var mobNO = document.getElementById('mobNum').value;
             var body = document.getElementById('textArea').value;
@@ -45,18 +50,39 @@
             }
             else
             {
-                var mess = "Name : " + naam + " \nMessage : " + body + " \nMobile Number : " + mobNO;
+                
+                loader.style.display = "inline";
+                loadertxt.style.display = "none";
+
+                var mess = `Name : ${naam}
+                            Message : ${body}
+                            Mobile Number : ${mobNO}`;
                 console.log("in function", mess);
                 Email.send({
                 Host : "smtp.elasticemail.com",
                 Username : "fcs.zone@gmail.com",
                 Password : "D7BBD3F5D6E99451415DA114E0F814C5905B",
-                To : 'shivendubharat@gmail.com',
+                To : 'deveshshukla1603@gmail.com',
                 From : 'fcs.zone@gmail.com',
-                Subject : "From FCS website For Consulation ",
-                Body : mess
+                Subject : "From FCS website For Free Consulation",
+                Body :  `Name : ${naam}
+                        \nMessage : ${body}
+                        \nMobile Number : ${mobNO}`
                 }).then(
-                message => alert(message)
+                message => {
+                    if(message === 'OK')
+                    {
+                        console.log("ok");
+                        loader.style.display = "none";
+                        loadertxt.style.display = "inline";
+                        alert("Successfully Send\nWait For Our Reply");
+                    }
+                    else{
+                        alert("Some Error Occured");
+                        loader.style.display = "none";
+                        loadertxt.style.display = "inline";
+                    }
+                }  
                 );  
             }
         }
